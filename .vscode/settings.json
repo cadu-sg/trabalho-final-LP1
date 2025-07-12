@@ -1,0 +1,7 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "C_Cpp.clang_format_style": "Google",
+    "github.copilot.enable": {
+        "*": false
+    }
+}
