@@ -1,9 +1,11 @@
 #include "Materia.h"
 
-// Construtor
-Materia::Materia(const std::string& nome) : nomeMateria(nome) {}
+Materia::Materia(const std::string& nome, const std::string& horarios,
+                 int horas)
+    : nome(nome), horariosSemanais(horarios), horasTotais(horas) {}
 
-// Método de acesso
-std::string Materia::getNome() const {
-    return nomeMateria;
-}
+std::string Materia::getNome() const { return nome; }
+
+std::string Materia::getHorarios() const { return horariosSemanais; }
+
+int Materia::getHorasTotais() const { return horasTotais; }

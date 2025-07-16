@@ -1,17 +1,9 @@
 #include "Professor.h"
 
-#include <iostream>
+Professor::Professor(const std::string& nome, double salario,
+                     const Materia& materia)
+    : Pessoa(nome), salario(salario), materia(materia) {}
 
-// Construtor
-Professor::Professor(const std::string& nome, int idade, double salario,
-                     const std::string& disciplina)
-    : Funcionario(nome, idade, salario), disciplina(disciplina) {}
+double Professor::getSalario() const { return salario; }
 
-// Método de acesso
-std::string Professor::getDisciplina() const { return disciplina; }
-
-// Sobrescrita do método apresentar
-void Professor::apresentar() const {
-  Funcionario::apresentar();
-  std::cout << ", Disciplina: " << disciplina << std::endl;
-}
+const Materia& Professor::getMateria() const { return materia; }

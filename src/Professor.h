@@ -3,22 +3,23 @@
 
 #include <string>
 
-#include "Funcionario.h"
+#include "Materia.h"
+#include "Pessoa.h"
 
-class Professor : public Funcionario {
+class Professor : public Pessoa {
  private:
-  std::string disciplina;
+  double salario;
+  Materia materia;
 
  public:
   // Construtor
-  Professor(const std::string& nome, int idade, double salario,
-            const std::string& disciplina);
+  Professor(const std::string& nome, double salario, const Materia& materia);
 
-  // Método de acesso
-  std::string getDisciplina() const;
+  double getSalario() const;
 
-  // Sobrescrita do método apresentar
-  void apresentar() const override;
+  // Retorna uma referência constante ao objeto Matéria,
+  // permitindo a leitura dos seus dados sem permitir modificação.
+  const Materia& getMateria() const;
 };
 
 #endif  // PROFESSOR_H

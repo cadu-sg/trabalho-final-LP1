@@ -4,15 +4,19 @@
 #include <string>
 
 class Materia {
-private:
-    std::string nomeMateria;
+ private:
+  std::string nome;
+  std::string horariosSemanais;
+  int horasTotais;
 
-public:
-    // Construtor
-    Materia(const std::string& nome);
+ public:
+  // Construtor
+  Materia(const std::string& nome, const std::string& horarios, int horas);
 
-    // Método de acesso
-    std::string getNome() const;
+  // Métodos de acesso
+  std::string getNome() const;
+  std::string getHorarios() const;
+  int getHorasTotais() const;
 };
 
-#endif // MATERIA_H
+#endif  // MATERIA_H
