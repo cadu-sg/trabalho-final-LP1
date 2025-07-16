@@ -8,11 +8,12 @@ class Aluno;  // Forward declaration
 
 class Responsavel : public Pessoa {
  private:
+  int id;
   std::string contato;
   std::vector<Aluno*> alunos;
 
  public:
-  // Construtores
+  // Construtor
   Responsavel(const std::string& nome, const std::string& contato);
 
   // Destrutor
@@ -21,6 +22,7 @@ class Responsavel : public Pessoa {
   // Getters
   std::string getContato() const;
   std::vector<Aluno*> getAlunos() const;
+  int getId() const;
 
   // Setters
   void setContato(const std::string& contato);

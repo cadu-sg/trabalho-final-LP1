@@ -5,7 +5,7 @@
 
 #include "Aluno.h"
 
-// Construtores
+// Construtor
 Responsavel::Responsavel(const std::string& nome, const std::string& contato)
     : Pessoa(nome), contato(contato) {}
 
@@ -20,6 +20,8 @@ Responsavel::~Responsavel() {
 }
 
 // Getters
+
+int Responsavel::getId() const { return id; }
 
 std::string Responsavel::getContato() const { return contato; }
 
@@ -70,8 +72,7 @@ void Responsavel::exibirInformacoes() const {
   } else {
     for (const auto& aluno : alunos) {
       std::cout << "  - " << aluno->getNome()
-                << " (Matrícula: " << aluno->getNumeroMatricula() << ")"
-                << std::endl;
+                << " (Matrícula: " << aluno->getMatricula() << ")" << std::endl;
     }
   }
   std::cout << std::endl;

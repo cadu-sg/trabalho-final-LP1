@@ -8,24 +8,21 @@
 
 class Responsavel;
 
-class Aluno: public Pessoa {
+class Aluno : public Pessoa {
  private:
-  int numeroMatricula;
+  int matricula;
   std::vector<Responsavel*> responsaveis;
 
  public:
   // Construtor
-  Aluno(const std::string& nome, int numeroMatricula);
+  Aluno(const std::string& nome, int matricula);
 
   // Destrutor
   ~Aluno();
 
   // Getters
-  int getNumeroMatricula() const;
+  int getMatricula() const;
   std::vector<Responsavel*> getResponsaveis() const;
-
-  // Setters
-  void setNumeroMatricula(int numeroMatricula);
 
   // Métodos para gerenciar responsáveis
   void adicionarResponsavel(Responsavel* responsavel);

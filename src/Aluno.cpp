@@ -6,8 +6,8 @@
 #include "Responsavel.h"
 
 // Construtor
-Aluno::Aluno(const std::string& nome, int numeroMatricula)
-    : Pessoa(nome), numeroMatricula(numeroMatricula) {}
+Aluno::Aluno(const std::string& nome, int matricula)
+    : Pessoa(nome), matricula(matricula) {}
 
 // Destrutor
 Aluno::~Aluno() {
@@ -20,18 +20,15 @@ Aluno::~Aluno() {
 }
 
 // Getters
-int Aluno::getNumeroMatricula() const { return numeroMatricula; }
+
+int Aluno::getMatricula() const { return matricula; }
 
 std::vector<Responsavel*> Aluno::getResponsaveis() const {
   return responsaveis;
 }
 
-// Setters
-void Aluno::setNumeroMatricula(int numeroMatricula) {
-  this->numeroMatricula = numeroMatricula;
-}
-
 // Métodos para gerenciar responsáveis
+
 void Aluno::adicionarResponsavel(Responsavel* responsavel) {
   if (responsavel && !temResponsavel(responsavel)) {
     responsaveis.push_back(responsavel);
@@ -62,7 +59,7 @@ bool Aluno::temResponsavel(Responsavel* responsavel) const {
 void Aluno::exibirInformacoes() const {
   std::cout << "=== INFORMAÇÕES DO ALUNO ===" << std::endl;
   std::cout << "Nome: " << getNome() << std::endl;
-  std::cout << "Matrícula: " << numeroMatricula << std::endl;
+  std::cout << "Matrícula: " << matricula << std::endl;
   std::cout << "Responsáveis:" << std::endl;
 
   if (responsaveis.empty()) {

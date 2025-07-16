@@ -8,3 +8,5 @@ Pessoa::~Pessoa() {}
 
 // Métodos de acesso (encapsulamento)
 std::string Pessoa::getNome() const { return nome; }
+
+void Pessoa::setNome(const std::string& nome) { this->nome = nome; }

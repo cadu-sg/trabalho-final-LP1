@@ -4,7 +4,7 @@
 #include <string>
 
 class Pessoa {
- private:
+ protected:
   std::string nome;
 
  public:
@@ -14,8 +14,8 @@ class Pessoa {
   // Destrutor virtual para garantir a limpeza correta em classes derivadas
   virtual ~Pessoa();
 
-  // Métodos de acesso (encapsulamento)
   std::string getNome() const;
+  void setNome(const std::string& nome);
 };
 
 #endif  // PESSOA_H
