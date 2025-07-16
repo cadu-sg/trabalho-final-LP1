@@ -4,23 +4,18 @@
 #include <string>
 
 class Pessoa {
-private:
-    std::string nome;
-    int idade;
+ private:
+  std::string nome;
 
-public:
-    // Construtor
-    Pessoa(const std::string& nome, int idade);
+ public:
+  // Construtor
+  Pessoa(const std::string& nome);
 
-    // Métodos de acesso (Encapsulamento)
-    std::string getNome() const;
-    int getIdade() const;
+  // Destrutor virtual para garantir a limpeza correta em classes derivadas
+  virtual ~Pessoa();
 
-    // Método virtual para ser sobrescrito
-    virtual void apresentar() const;
-    
-    // Destrutor virtual para garantir a limpeza correta em classes derivadas
-    virtual ~Pessoa();
+  // Métodos de acesso (encapsulamento)
+  std::string getNome() const;
 };
 
-#endif // PESSOA_H
+#endif  // PESSOA_H
