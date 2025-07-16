@@ -5,10 +5,8 @@
 #include "Professor.h"
 #include "Diretor.h"
 #include "Materia.h"
-#include "Boletim.h
+#include "Boletim.h"
 #include "Turma.h"
-
-template <typename T>
 
 int main() {
   // Definindo o encoding de saída para UTF-8 para exibir acentos corretamente
