@@ -10,11 +10,11 @@
 class GerenciadorAlunos {
  private:
   std::map<int, Aluno*> alunos;  // mapa de matrícula -> aluno
-  int proximaMatricula;          // para gerar matrículas únicas
 
  public:
-  // Construtor e Destrutor
+  // Construtor
   GerenciadorAlunos();
+  // Destrutor
   ~GerenciadorAlunos();
 
   // CRUD

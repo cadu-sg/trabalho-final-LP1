@@ -1,20 +1,28 @@
 #ifndef GERENCIADORPROFESSORES_H
 #define GERENCIADORPROFESSORES_H
 
-#include "Professor.h"
 #include <map>
 #include <string>
+#include <vector>
+
+#include "Professor.h"
 
 class GerenciadorProfessores {
-private:
-    std::map<int, Professor> professores;
-public:
-    // CRUD
-    void criar(int id, const Professor& professor);
-    Professor* ler(int id);
-    bool atualizar(int id, const Professor& novoProfessor);
-    bool deletar(int id);
-    std::map<int, Professor> listar() const;
+ private:
+  std::map<int, Professor*> professores;
+
+ public:
+  GerenciadorProfessores();
+  ~GerenciadorProfessores();
+
+  // CRUD
+  Professor* criar(const std::string& nome, double salario,
+                   const Materia& materia);
+  Professor* ler(int id);
+  bool atualizar(int id, const std::string& nome, double salario,
+                 const Materia& materia);
+  bool deletar(int id);
+  std::vector<Professor*> listar() const;
 };
 
-#endif // GERENCIADORPROFESSORES_H
+#endif  // GERENCIADORPROFESSORES_H

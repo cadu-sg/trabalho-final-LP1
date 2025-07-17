@@ -74,24 +74,37 @@ void menuMaterias(GerenciadorMaterias& gerMaterias) {
     cout << "\n--- MENU MATERIAS ---\n"
          << "1) Cadastrar materia\n"
          << "2) Listar materias\n"
-         << "3) Remover materia\n"
-         << "4) Voltar\n";
-    int escolha = selecionarNumero({1,2,3,4});
+         << "3) Atualizar materia\n"
+         << "4) Remover materia\n"
+         << "5) Voltar\n";
+    int escolha = selecionarNumero({1,2,3,4,5});
     if (escolha == 1) {
       cout << "Nome da materia: "; string nome; cin.ignore(); getline(cin, nome);
       cout << "Horarios semanais: "; string horarios; getline(cin, horarios);
       cout << "Horas totais: "; int horas; cin >> horas;
-      Materia m(nome, horarios, horas);
-      int id = m.getId();
-      gerMaterias.criar(id, m);
-      cout << "Materia cadastrada com id " << id << "!\n";
+      Materia* m = gerMaterias.criar(nome, horarios, horas);
+      cout << "Materia cadastrada com id " << m->getId() << "!\n";
     } else if (escolha == 2) {
       auto lista = gerMaterias.listar();
       cout << "Materias cadastradas:\n";
-      for (const auto& par : lista) {
-        cout << "ID: " << par.first << " | Nome: " << par.second.getNome() << endl;
+      for (auto* m : lista) {
+        cout << "ID: " << m->getId() << " | Nome: " << m->getNome() << endl;
       }
     } else if (escolha == 3) {
+      cout << "ID da materia a atualizar: "; int id; cin >> id;
+      Materia* m = gerMaterias.ler(id);
+      if (m) {
+        cout << "Novo nome: "; string nome; cin.ignore(); getline(cin, nome);
+        cout << "Novos horarios semanais: "; string horarios; getline(cin, horarios);
+        cout << "Novas horas totais: "; int horas; cin >> horas;
+        if (gerMaterias.atualizar(id, nome, horarios, horas))
+          cout << "Materia atualizada!\n";
+        else
+          cout << "Falha ao atualizar.\n";
+      } else {
+        cout << "ID nao encontrado.\n";
+      }
+    } else if (escolha == 4) {
       cout << "ID da materia a remover: "; int id; cin >> id;
       if (gerMaterias.deletar(id)) cout << "Removida!\n";
       else cout << "ID nao encontrado.\n";
@@ -106,9 +119,10 @@ void menuProfessores(GerenciadorProfessores& gerProfessores) {
     cout << "\n--- MENU PROFESSORES ---\n"
          << "1) Cadastrar professor\n"
          << "2) Listar professores\n"
-         << "3) Remover professor\n"
-         << "4) Voltar\n";
-    int escolha = selecionarNumero({1,2,3,4});
+         << "3) Atualizar professor\n"
+         << "4) Remover professor\n"
+         << "5) Voltar\n";
+    int escolha = selecionarNumero({1,2,3,4,5});
     if (escolha == 1) {
       cout << "Nome do professor: "; string nome; cin.ignore(); getline(cin, nome);
       cout << "Salario: "; double salario; cin >> salario;
@@ -117,17 +131,33 @@ void menuProfessores(GerenciadorProfessores& gerProfessores) {
       cout << "Horarios semanais: "; string horariosMat; getline(cin, horariosMat);
       cout << "Horas totais: "; int horasMat; cin >> horasMat;
       Materia m(nomeMat, horariosMat, horasMat);
-      Professor p(nome, salario, m);
-      int id = p.getId();
-      gerProfessores.criar(id, p);
-      cout << "Professor cadastrado com id " << id << "!\n";
+      Professor* p = gerProfessores.criar(nome, salario, m);
+      cout << "Professor cadastrado com id " << p->getId() << "!\n";
     } else if (escolha == 2) {
       auto lista = gerProfessores.listar();
       cout << "Professores cadastrados:\n";
-      for (const auto& par : lista) {
-        cout << "ID: " << par.first << " | Nome: " << par.second.getNome() << endl;
+      for (auto* p : lista) {
+        cout << "ID: " << p->getId() << " | Nome: " << p->getNome() << endl;
       }
     } else if (escolha == 3) {
+      cout << "ID do professor a atualizar: "; int id; cin >> id;
+      Professor* p = gerProfessores.ler(id);
+      if (p) {
+        cout << "Novo nome: "; string nome; cin.ignore(); getline(cin, nome);
+        cout << "Novo salario: "; double salario; cin >> salario;
+        cout << "--- Novos dados da materia ---\n";
+        cout << "Nome da materia: "; string nomeMat; cin.ignore(); getline(cin, nomeMat);
+        cout << "Horarios semanais: "; string horariosMat; getline(cin, horariosMat);
+        cout << "Horas totais: "; int horasMat; cin >> horasMat;
+        Materia m(nomeMat, horariosMat, horasMat);
+        if (gerProfessores.atualizar(id, nome, salario, m))
+          cout << "Professor atualizado!\n";
+        else
+          cout << "Falha ao atualizar.\n";
+      } else {
+        cout << "ID nao encontrado.\n";
+      }
+    } else if (escolha == 4) {
       cout << "ID do professor a remover: "; int id; cin >> id;
       if (gerProfessores.deletar(id)) cout << "Removido!\n";
       else cout << "ID nao encontrado.\n";

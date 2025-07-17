@@ -4,7 +4,7 @@
 #include <iostream>
 
 // Construtor
-GerenciadorAlunos::GerenciadorAlunos() : proximaMatricula(1) {}
+GerenciadorAlunos::GerenciadorAlunos() {}
 
 // Destrutor
 GerenciadorAlunos::~GerenciadorAlunos() {
@@ -17,9 +17,8 @@ GerenciadorAlunos::~GerenciadorAlunos() {
 
 // Create
 Aluno* GerenciadorAlunos::criar(const std::string& nome) {
-  Aluno* novoAluno = new Aluno(nome, proximaMatricula);
-  alunos[proximaMatricula] = novoAluno;
-  proximaMatricula++;
+  Aluno* novoAluno = new Aluno(nome);
+  alunos[novoAluno->getMatricula()] = novoAluno;
   return novoAluno;
 }
 
@@ -49,13 +48,7 @@ bool GerenciadorAlunos::atualizar(int matricula, const std::string& novoNome) {
 
 // Delete
 bool GerenciadorAlunos::deletar(int matricula) {
-  auto it = alunos.find(matricula);
-  if (it != alunos.end()) {
-    delete it->second;
-    alunos.erase(it);
-    return true;
-  }
-  return false;
+  return alunos.erase(matricula) > 0;
 }
 
 // Outros métodos úteis
@@ -63,6 +56,4 @@ bool GerenciadorAlunos::existe(int matricula) const {
   return alunos.find(matricula) != alunos.end();
 }
 
-int GerenciadorAlunos::total() const {
-  return alunos.size();
-}
+int GerenciadorAlunos::total() const { return alunos.size(); }

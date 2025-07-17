@@ -12,14 +12,19 @@ class Materia {
   int horasTotais;
 
 public:
-  // Construtor padrão
-  Materia();
+  // Construtor
   Materia(const std::string& nome, const std::string& horarios, int horas);
+
+  // Getters
   int getId() const;
-  // Métodos de acesso
   std::string getNome() const;
   std::string getHorarios() const;
   int getHorasTotais() const;
+
+  // Setters
+  void setNome(const std::string& nome);
+  void setHorariosSemanais(const std::string& horariosSemanais);
+  void setHorasTotais(int horasTotais);
 };
 
 #endif  // MATERIA_H

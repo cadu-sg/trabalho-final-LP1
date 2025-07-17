@@ -5,9 +5,11 @@
 
 #include "Responsavel.h"
 
+int Aluno::proximaMatricula = 1;
+
 // Construtor
-Aluno::Aluno(const std::string& nome, int matricula)
-    : Pessoa(nome), matricula(matricula) {}
+Aluno::Aluno(const std::string& nome)
+    : Pessoa(nome), matricula(proximaMatricula++) {}
 
 // Destrutor
 Aluno::~Aluno() {

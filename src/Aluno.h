@@ -12,10 +12,11 @@ class Aluno : public Pessoa {
  private:
   int matricula;
   std::vector<Responsavel*> responsaveis;
+  static int proximaMatricula;
 
  public:
   // Construtor
-  Aluno(const std::string& nome, int matricula);
+  Aluno(const std::string& nome);
 
   // Destrutor
   ~Aluno();

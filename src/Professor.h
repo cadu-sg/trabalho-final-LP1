@@ -13,16 +13,19 @@ class Professor : public Pessoa {
   double salario;
   Materia materia;
 
-public:
-  // Construtor padrão
-  Professor();
+ public:
+  // Construtor
   Professor(const std::string& nome, double salario, const Materia& materia);
+
+  // Getters
   int getId() const;
   double getSalario() const;
-
-  // Retorna uma referência constante ao objeto Matéria,
-  // permitindo a leitura dos seus dados sem permitir modificação.
   const Materia& getMateria() const;
+
+  // Setters
+  void setNome(const std::string& nome);
+  void setSalario(double salario);
+  void setMateria(const Materia& materia);
 };
 
 #endif  // PROFESSOR_H
