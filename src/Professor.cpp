@@ -2,6 +2,8 @@
 
 int Professor::proximoId = 1;
 
+Professor::Professor() : Pessoa(""), id(proximoId++), salario(0.0), materia() {}
+
 Professor::Professor(const std::string& nome, double salario,
                      const Materia& materia)
     : Pessoa(nome), id(proximoId++), salario(salario), materia(materia) {}

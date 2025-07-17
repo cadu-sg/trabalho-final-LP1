@@ -2,6 +2,8 @@
 
 int Materia::proximoId = 1;
 
+Materia::Materia() : id(proximoId++), nome(""), horariosSemanais(""), horasTotais(0) {}
+
 Materia::Materia(const std::string& nome, const std::string& horarios,
                  int horas)
     : id(proximoId++),

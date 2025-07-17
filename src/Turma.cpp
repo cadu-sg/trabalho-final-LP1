@@ -5,6 +5,8 @@
 
 int Turma::proximoId = 1;
 
+Turma::Turma() : id(proximoId++), nome("") {}
+
 Turma::Turma(const std::string& nome) : id(proximoId++), nome(nome) {}
 
 int Turma::getId() const {

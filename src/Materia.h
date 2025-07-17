@@ -11,8 +11,9 @@ class Materia {
   std::string horariosSemanais;
   int horasTotais;
 
- public:
-  // Construtor
+public:
+  // Construtor padrão
+  Materia();
   Materia(const std::string& nome, const std::string& horarios, int horas);
   int getId() const;
   // Métodos de acesso

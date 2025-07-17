@@ -13,8 +13,9 @@ class Professor : public Pessoa {
   double salario;
   Materia materia;
 
- public:
-  // Construtor
+public:
+  // Construtor padrão
+  Professor();
   Professor(const std::string& nome, double salario, const Materia& materia);
   int getId() const;
   double getSalario() const;

@@ -17,6 +17,7 @@ private:
 
 public:
   // Construtor
+  Turma();
   Turma(const std::string& nome);
 
   int getId() const;
