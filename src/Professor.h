@@ -8,13 +8,15 @@
 
 class Professor : public Pessoa {
  private:
+  static int proximoId;
+  int id;
   double salario;
   Materia materia;
 
  public:
   // Construtor
   Professor(const std::string& nome, double salario, const Materia& materia);
-
+  int getId() const;
   double getSalario() const;
 
   // Retorna uma referência constante ao objeto Matéria,

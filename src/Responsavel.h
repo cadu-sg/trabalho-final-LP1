@@ -4,7 +4,11 @@
 #include <string>
 #include <vector>
 
-class Aluno;  // Forward declaration
+#include "Aluno.h"
+#include "Pessoa.h"
+
+class Pessoa;
+class Aluno;
 
 class Responsavel : public Pessoa {
  private:

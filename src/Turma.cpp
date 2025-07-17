@@ -1,22 +1,26 @@
+
 #include "Turma.h"
+#include "Aluno.h"
+#include "Professor.h"
 
-#include <iostream>
+int Turma::proximoId = 1;
 
-// Construtor
-Turma::Turma(const std::string& nome, const Professor& prof)
-    : nomeTurma(nome), professor(prof) {}
+Turma::Turma(const std::string& nome) : id(proximoId++), nome(nome) {}
 
-// Método para adicionar aluno
-void Turma::adicionarAluno(const Aluno& aluno) { alunos.push_back(aluno); }
+int Turma::getId() const {
+  return id;
+}
 
-// Método para exibir detalhes da turma
-void Turma::exibirDetalhes() const {
-  std::cout << "======================================" << std::endl;
-  std::cout << "Detalhes da Turma: " << nomeTurma << std::endl;
-  std::cout << "Professor Responsável: " << professor.getNome() << std::endl;
-  std::cout << "Alunos na Turma:" << std::endl;
-  for (const auto& aluno : alunos) {
-    std::cout << "- " << aluno.getNome() << std::endl;
-  }
-  std::cout << "======================================" << std::endl;
+void Turma::adicionarAluno(Aluno* aluno) { alunos.push_back(aluno); }
+
+void Turma::adicionarProfessor(Professor* professor) {
+  professores.push_back(professor);
+}
+
+std::string Turma::getNome() const { return nome; }
+
+const std::vector<Aluno*>& Turma::getAlunos() const { return alunos; }
+
+const std::vector<Professor*>& Turma::getProfessores() const {
+  return professores;
 }

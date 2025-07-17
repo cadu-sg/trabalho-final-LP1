@@ -5,6 +5,8 @@
 
 class Materia {
  private:
+  static int proximoId;
+  int id;
   std::string nome;
   std::string horariosSemanais;
   int horasTotais;
@@ -12,7 +14,7 @@ class Materia {
  public:
   // Construtor
   Materia(const std::string& nome, const std::string& horarios, int horas);
-
+  int getId() const;
   // Métodos de acesso
   std::string getNome() const;
   std::string getHorarios() const;

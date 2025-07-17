@@ -4,24 +4,30 @@
 #include <string>
 #include <vector>
 
-#include "Aluno.h"
-#include "Professor.h"
+class Aluno;
+class Professor;
 
 class Turma {
- private:
-  std::string nomeTurma;
-  Professor professor;
-  std::vector<Aluno> alunos;
+private:
+  static int proximoId;
+  int id;
+  std::string nome;
+  std::vector<Aluno*> alunos;
+  std::vector<Professor*> professores;
 
- public:
+public:
   // Construtor
-  Turma(const std::string& nome, const Professor& prof);
+  Turma(const std::string& nome);
 
-  // Método para adicionar aluno
-  void adicionarAluno(const Aluno& aluno);
+  int getId() const;
+  // void setId(int novoId); // Removido, id é automático
 
-  // Método para exibir detalhes da turma
-  void exibirDetalhes() const;
+  void adicionarAluno(Aluno* aluno);
+  void adicionarProfessor(Professor* professor);
+
+  std::string getNome() const;
+  const std::vector<Aluno*>& getAlunos() const;
+  const std::vector<Professor*>& getProfessores() const;
 };
 
 #endif  // TURMA_H
